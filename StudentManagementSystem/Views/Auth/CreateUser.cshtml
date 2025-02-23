@@ -1,37 +1,27 @@
-﻿@model StudentManagementSystem.Models.StudentVM
+﻿@model StudentManagementSystem.Models.User
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "CreateUser";
 }
 
-<h1>Create</h1>
-@{
-    if (TempData["error_size"] != null)
-    {
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Warning!</strong> @TempData["error_size"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
-    if (TempData["error_extensions"] != null)
-    {
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Warning!</strong> @TempData["error_extensions"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
-}
-<h4>Student</h4>
+<h1>CreateUser</h1>
+
+<h4>User</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
+        <form asp-action="CreateUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @* <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
                 <input asp-for="Id" class="form-control" />
                 <span asp-validation-for="Id" class="text-danger"></span>
             </div> *@
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -43,14 +33,14 @@
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Photo" class="control-label"></label>
-                <input asp-for="Photo" class="form-control" />
-                <span asp-validation-for="Photo" class="text-danger"></span>
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" type="password"  class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -61,6 +51,7 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
+    <a asp-action="Login">Login</a>
 </div>
 
 @section Scripts {

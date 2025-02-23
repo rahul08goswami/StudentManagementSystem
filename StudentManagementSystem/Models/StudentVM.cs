@@ -2,8 +2,7 @@
 
 namespace StudentManagementSystem.Models
 {
-
-    public class Student
+    public class StudentVM
     {
         [Display(Name = "Registration No")]
         public int Id { get; set; }
@@ -14,7 +13,6 @@ namespace StudentManagementSystem.Models
         [Required]
         public int Age { get; set; }
         [Required]
-        public string Image_Path { get; set; }
+        public IFormFile Photo { get; set; }
     }
-
 }
